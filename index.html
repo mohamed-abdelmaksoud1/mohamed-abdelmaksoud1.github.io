@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohamed Abdelmaksoud | Business Information Systems</title>
+<style>
+:root{--bg:#080c1a;--text:#eef2ff;--muted:#a9b3d3;--a1:#6366f1;--a2:#22d3ee;--a3:#f472b6;--glass:rgba(255,255,255,.06);--line:rgba(255,255,255,.13)}
+@media (prefers-color-scheme:light){:root{--bg:#f3f5ff;--text:#14193a;--muted:#55608a;--glass:rgba(255,255,255,.75);--line:rgba(20,25,58,.12)}}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.9;overflow-x:hidden}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+#bar{position:fixed;top:0;inset-inline-start:0;height:3px;width:0;background:linear-gradient(90deg,var(--a1),var(--a2),var(--a3));z-index:20}
+nav{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:10;display:flex;align-items:center;gap:4px;padding:6px;background:var(--glass);border:1px solid var(--line);border-radius:999px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);white-space:nowrap}
+nav a,nav button{color:var(--text);text-decoration:none;font:inherit;font-size:.82rem;padding:4px 12px;border-radius:999px;transition:.25s;border:0;background:none;cursor:pointer}
+nav a:hover,nav a.on{background:linear-gradient(90deg,var(--a1),var(--a2));color:#fff}
+nav button{border:1px solid var(--a2);font-weight:700;margin-inline-start:4px}
+nav button:hover{background:var(--a2);color:#08121f}
+main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:0 20px}
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 0 40px}
+.hi{color:var(--a2);font-weight:600;animation:up .8s both}
+h1{font-size:clamp(2.2rem,10vw,4.2rem);line-height:1.25;margin:6px 0;background:linear-gradient(120deg,var(--a1),var(--a2),var(--a3),var(--a1));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:up .8s .15s both,shine 6s linear infinite}
+@keyframes shine{to{background-position:300% 0}}
+.typing{font-size:1.2rem;min-height:2em;color:var(--muted);animation:up .8s .3s both}
+.typing::after{content:"|";margin-inline-start:2px;color:var(--a2);animation:blink 1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.links{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px;animation:up .8s .5s both}
+.btn{padding:11px 24px;border-radius:999px;border:1px solid var(--line);background:var(--glass);color:var(--text);text-decoration:none;transition:.25s}
+.btn.main{background:linear-gradient(90deg,var(--a1),var(--a2));color:#fff;border-color:transparent}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(99,102,241,.35)}
+.scroll{margin-top:44px;color:var(--muted);animation:bounce 2s infinite}
+@keyframes bounce{50%{transform:translateY(8px)}}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+section{padding:56px 0}
+h2{font-size:1.6rem;margin-bottom:20px}
+h2::after{content:"";display:block;width:54px;height:4px;border-radius:4px;margin-top:6px;background:linear-gradient(90deg,var(--a1),var(--a2))}
+.about{padding:24px;background:var(--glass);border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.about p{color:var(--muted);margin-bottom:12px}
+.about p:last-child{margin:0}
+.about b{color:var(--text)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:16px}
+.card{padding:20px;background:var(--glass);border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:.3s}
+.card:hover{transform:translateY(-6px);border-color:var(--a2)}
+.card .ic{font-size:1.8rem}
+.card h3{font-size:1.05rem}
+.card p{color:var(--muted);font-size:.93rem;line-height:1.7}
+.info .k{color:var(--a2);font-size:.8rem}
+.info .v{font-weight:700}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.reveal.show{opacity:1;transform:none}
+.contact-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.c-card{display:flex;align-items:center;gap:14px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--text);text-decoration:none;transition:.3s}
+.c-card:hover{transform:translateY(-6px);border-color:var(--a2);box-shadow:0 10px 28px rgba(34,211,238,.18)}
+.c-card .ic{font-size:1.7rem;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--a1),var(--a2));flex:none}
+.c-card .k{color:var(--a2);font-size:.8rem;line-height:1.3}
+.c-card .v{font-weight:700;direction:ltr;unicode-bidi:plaintext;word-break:break-all;line-height:1.4}
+footer{text-align:center;color:var(--muted);padding:30px 0 40px;font-size:.85rem}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div id="bar"></div>
+<nav>
+<a href="#top" class="on" data-en="Home" data-ar="الرئيسية">Home</a>
+<a href="#about" data-en="About" data-ar="نبذة">About</a>
+<a href="#soon" data-en="Soon" data-ar="قريبًا">Soon</a>
+<a href="#contact" data-en="Contact" data-ar="التواصل">Contact</a>
+<button id="lang" aria-label="Switch language">عربي</button>
+</nav>
+<main id="top">
+<div class="hero">
+<div class="hi" data-en="Hello, I'm" data-ar="أهلاً، أنا">Hello, I'm</div>
+<h1 data-en="Mohamed Mohamed Abdelmaksoud" data-ar="محمد محمد عبدالمقصود">Mohamed Mohamed Abdelmaksoud</h1>
+<div class="typing" id="typing"></div>
+<div class="links">
+<a class="btn main" href="#about" data-en="Learn more about me" data-ar="اعرف أكتر عني">Learn more about me</a>
+<a class="btn" href="#contact" data-en="Contact me" data-ar="تواصل معي">Contact me</a>
+</div>
+<div class="scroll">↓</div>
+</div>
+
+<section id="about" class="reveal">
+<h2 data-en="About Me" data-ar="نبذة عني">About Me</h2>
+<div class="about">
+<p data-en="I hold a <b>Bachelor's degree in Business Information Systems</b> with a grade of <b>Very Good (High)</b>. This field combines an understanding of how organizations work with the technology that helps them make better decisions." data-ar="أنا خريج <b>بكالوريوس نظم معلومات الأعمال</b> بتقدير <b>جيد جدًا مرتفع</b>. التخصص ده بيجمع بين فهم الشركات وإزاي بتشتغل، وبين التكنولوجيا اللي بتساعدها تاخد قرارات أحسن."></p>
+<p data-en="During my studies I learned how systems and data turn into useful information for business, and how to act as a bridge between the people who run the business and the people who build technical solutions." data-ar="اتعلمت خلال دراستي إزاي الأنظمة والبيانات بتتحول لمعلومات مفيدة تخدم الأعمال، وإزاي أكون حلقة وصل بين الناس اللي بيديروا الشغل والناس اللي بيبنوا الحلول التقنية."></p>
+<p data-en="Right now I'm developing my skills in <b>data analysis</b>, aiming to build a strong professional career in this field." data-ar="دلوقتي شغال على تطوير مهاراتي في <b>تحليل البيانات</b>، وهدفي أبني مسار مهني قوي في المجال ده."></p>
+</div>
+<div class="grid info">
+<div class="card"><div class="k" data-en="Major" data-ar="التخصص"></div><div class="v" data-en="Business Information Systems" data-ar="نظم معلومات الأعمال"></div></div>
+<div class="card"><div class="k" data-en="Degree" data-ar="المؤهل"></div><div class="v" data-en="Bachelor's" data-ar="بكالوريوس"></div></div>
+<div class="card"><div class="k" data-en="Grade" data-ar="التقدير"></div><div class="v" data-en="Very Good (High)" data-ar="جيد جدًا مرتفع"></div></div>
+</div>
+</section>
+
+<section class="reveal">
+<h2 data-en="What My Major Covers" data-ar="إيه اللي بيغطيه تخصصي؟"></h2>
+<div class="grid">
+<div class="card"><div class="ic">🏢</div><h3 data-en="Business Understanding" data-ar="فهم الأعمال"></h3><p data-en="How companies operate, organize, and make decisions." data-ar="إزاي الشركات بتشتغل وبتتنظم وبتاخد قراراتها."></p></div>
+<div class="card"><div class="ic">💻</div><h3 data-en="Information Technology" data-ar="تكنولوجيا المعلومات"></h3><p data-en="The systems and applications that support daily work." data-ar="الأنظمة والتطبيقات اللي بتدعم العمل اليومي."></p></div>
+<div class="card"><div class="ic">📊</div><h3 data-en="Data & Analysis" data-ar="البيانات والتحليل"></h3><p data-en="Turning data into information that supports decisions." data-ar="تحويل البيانات لمعلومات تساعد في القرار."></p></div>
+<div class="card"><div class="ic">🔗</div><h3 data-en="The Bridge" data-ar="حلقة الوصل"></h3><p data-en="Connecting business needs with technical solutions." data-ar="الربط بين احتياجات الأعمال والحلول التقنية."></p></div>
+</div>
+</section>
+
+<section id="soon" class="reveal">
+<h2 data-en="Coming Soon" data-ar="قريبًا"></h2>
+<div class="grid">
+<div class="card"><div class="ic">🎓</div><h3 data-en="Courses" data-ar="الكورسات"></h3><p data-en="Will be added here as soon as I finish them." data-ar="هتتضاف هنا أول ما أخلصها."></p></div>
+<div class="card"><div class="ic">🛠️</div><h3 data-en="Skills" data-ar="المهارات"></h3><p data-en="The tools I'm learning and working with." data-ar="الأدوات اللي بتعلمها وبشتغل بيها."></p></div>
+<div class="card"><div class="ic">🚀</div><h3 data-en="Projects" data-ar="المشاريع"></h3><p data-en="Hands-on work applying what I've learned." data-ar="تطبيقات عملية على اللي اتعلمته."></p></div>
+</div>
+</section>
+<section id="contact" class="reveal">
+<h2 data-en="Get In Touch" data-ar="تواصل معي"></h2>
+<div class="contact-grid">
+<a class="c-card" href="mailto:mohamedmohamed123vg@gmail.com"><div class="ic">✉️</div><div><div class="k" data-en="Email" data-ar="الإيميل"></div><div class="v">mohamedmohamed123vg@gmail.com</div></div></a>
+<a class="c-card" href="tel:+201552411213"><div class="ic">📞</div><div><div class="k" data-en="Phone" data-ar="رقم التليفون"></div><div class="v">01552411213</div></div></a>
+<a class="c-card" href="https://wa.me/201552411213" target="_blank" rel="noopener"><div class="ic">💬</div><div><div class="k" data-en="WhatsApp" data-ar="واتساب"></div><div class="v" data-en="Message me" data-ar="ابعتلي رسالة"></div></div></a>
+</div>
+</section>
+<footer>© <span id="y"></span> <span data-en="Mohamed Mohamed Abdelmaksoud" data-ar="محمد محمد عبدالمقصود"></span></footer>
+</main>
+<script>
+const T={en:["Business Information Systems","Passionate about data","Learning something new every day"],
+ar:["نظم معلومات الأعمال","شغوف بالبيانات","بتعلم كل يوم حاجة جديدة"]};
+const TITLE={en:"Mohamed Abdelmaksoud | Business Information Systems",ar:"محمد عبدالمقصود | نظم معلومات الأعمال"};
+let lang="en";
+try{const s=localStorage.getItem("lang");if(s==="ar"||s==="en")lang=s}catch(e){}
+const btn=document.getElementById("lang"),el=document.getElementById("typing");
+let w=0,c=0,del=false,timer;
+function setLang(l){lang=l;
+ document.documentElement.lang=l;document.documentElement.dir=l==="ar"?"rtl":"ltr";
+ document.title=TITLE[l];btn.textContent=l==="ar"?"EN":"عربي";
+ document.querySelectorAll("[data-en]").forEach(n=>{n.innerHTML=n.dataset[l]});
+ w=0;c=0;del=false;clearTimeout(timer);tick();
+ try{localStorage.setItem("lang",l)}catch(e){}}
+function tick(){const t=T[lang][w];el.textContent=t.slice(0,c);
+ if(!del&&c===t.length){del=true;timer=setTimeout(tick,1400);return}
+ if(del&&c===0){del=false;w=(w+1)%T[lang].length}
+ c+=del?-1:1;timer=setTimeout(tick,del?40:80)}
+btn.onclick=()=>setLang(lang==="en"?"ar":"en");
+document.getElementById("y").textContent=new Date().getFullYear();
+setLang(lang);
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add("show");io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(n=>io.observe(n));
+const bar=document.getElementById("bar"),links=[...document.querySelectorAll("nav a")];
+addEventListener("scroll",()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%";
+ const ids=["top","about","soon","contact"];let cur=0;ids.forEach((id,i)=>{if(document.getElementById(id).getBoundingClientRect().top<innerHeight*.4)cur=i});
+ links.forEach((a,i)=>a.classList.toggle("on",i===cur))},{passive:true});
+const cv=document.getElementById("bg"),cx=cv.getContext("2d");let P=[],W,H;
+function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;const n=Math.min(55,Math.floor(W*H/18000));
+ P=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4}))}
+size();addEventListener("resize",size);
+function draw(){cx.clearRect(0,0,W,H);const col=matchMedia("(prefers-color-scheme:light)").matches?"70,80,200":"140,160,255";
+ P.forEach((p,i)=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+  cx.fillStyle=`rgba(${col},.8)`;cx.beginPath();cx.arc(p.x,p.y,1.8,0,7);cx.fill();
+  for(let j=i+1;j<P.length;j++){const q=P[j],d=Math.hypot(p.x-q.x,p.y-q.y);
+   if(d<120){cx.strokeStyle=`rgba(${col},${.25*(1-d/120)})`;cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.stroke()}}});
+ requestAnimationFrame(draw)}
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches)draw();
+</script>
+</body>
+</html>
